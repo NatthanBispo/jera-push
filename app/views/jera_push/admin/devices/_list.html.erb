@@ -23,16 +23,16 @@
             flex-direction: column;
           "
         >
-          <span><%= device.pushable.name %></span>
-          <strong style="white-space: nowrap;">
+          <strong><%= device.pushable.name %></strong>
+          <span style="white-space: nowrap;">
             <%=
               if (device.pushable.email)
                 device.pushable.email
               end
             %>
-          <strong>
+          <span>
         </td>
-        <td class="col s2">
+        <td class="col s2" width="50%">
           <%= device.token %>
         </td>
       </tr>

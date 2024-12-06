@@ -21,6 +21,7 @@ pt-BR:
         attributes:
           id: ID
           content: Conteúdo
+          users: Usuários
           date: Data
       devices:
         attributes:

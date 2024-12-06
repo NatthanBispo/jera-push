@@ -13,7 +13,7 @@ module JeraPush
     attr_accessor :analytics_image
 
     def initialize(
-      apns_priority: '5',
+      apns_priority: '10',
       headers: {},
       content_available: 1,
       analytics_label: nil,

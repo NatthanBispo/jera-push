@@ -9,6 +9,9 @@
       <th data-field="content">
         <%= t('jera_push.active_record.messages.attributes.content') %>
       </th>
+      <th data-field="users">
+        <%= t('jera_push.active_record.messages.attributes.users') %>
+      </th>
       <th data-field="date">
         <%= t('jera_push.active_record.messages.attributes.date') %>
       </th>
@@ -18,10 +21,23 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td width="5%"><%= message.id %></td>
-        <td width="60%"><div class="json-message"><%= message.list_content %></div></td>
-        <td width="15%"><%= message.display_created_at %></td>
-        <td width="25%"><%= message.show_link %></td>
+        <td><%= message.id %></td>
+        <td>
+          <div style="display: flex; flex-direction: column;">
+            <strong><%= message.title %></strong>
+            <span><%= message.body %></span>
+          </div>
+        </td>
+        <td>
+          <% message.devices.map do |device| %>
+            <div style="display: flex; flex-direction: column;">
+              <strong><%= device.pushable.name %></strong>
+              <span><%= device.pushable.email %></span>
+            </div>
+          <% end %>
+        </td>
+        <td><%= message.display_created_at %></td>
+        <td><%= message.show_link %></td>
       </tr>
     <% end %>
   </tbody>
